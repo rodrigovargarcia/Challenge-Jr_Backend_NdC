@@ -20,6 +20,7 @@ namespace AdminPolizasAPI.Controllers
         }
 
         [HttpGet]
+        [Route("Lista")]
         public ActionResult<IEnumerable<Poliza>> GetAllPolizas()
         {
             try
@@ -54,6 +55,7 @@ namespace AdminPolizasAPI.Controllers
         }
 
         [HttpPost]
+        [Route("Agregar")]
         public ActionResult<Poliza> CreatePoliza(Poliza poliza)
         {
             try

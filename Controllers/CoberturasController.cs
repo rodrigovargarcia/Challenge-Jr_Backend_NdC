@@ -24,7 +24,7 @@ namespace AdminPolizasAPI.Controllers
         {
             try
             {
-                // Lógica para obtener todas las coberturas desde la base de datos
+                // Lógica para obtener todas las coberturas desde la base de datos                
                 var coberturas = _dbContext.Coberturas;
                 return Ok(coberturas);
             }
@@ -59,6 +59,7 @@ namespace AdminPolizasAPI.Controllers
             {
                 // Lógica para crear una nueva cobertura en la base de datos
                 _dbContext.Coberturas.Add(cobertura);
+                _dbContext.Entry(cobertura).State = EntityState.Added;
                 _dbContext.SaveChanges();
                 return CreatedAtAction(nameof(GetCoberturaById), new { id = cobertura.Id }, cobertura);
             }
@@ -80,6 +81,7 @@ namespace AdminPolizasAPI.Controllers
                     return NotFound();
                 }
                 existingCobertura.Nombre = cobertura.Nombre;
+                _dbContext.Entry(existingCobertura).State = EntityState.Modified;
                 // Actualiza otros campos de acuerdo a tu modelo de datos
                 _dbContext.SaveChanges();
                 return NoContent();
