@@ -20,6 +20,7 @@ namespace AdminPolizasAPI.Controllers
         }
 
         [HttpGet]
+        [Route("Lista")]
         public ActionResult<IEnumerable<Cobertura>> GetAllCoberturas()
         {
             try
@@ -53,6 +54,7 @@ namespace AdminPolizasAPI.Controllers
         }
 
         [HttpPost]
+        [Route("Agregar")]
         public ActionResult<Cobertura> CreateCobertura(Cobertura cobertura)
         {
             try
