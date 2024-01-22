@@ -20,6 +20,7 @@ namespace AdminPolizasAPI.Controllers
         }
 
         [HttpGet]
+        [Route("Lista")]
         public ActionResult<IEnumerable<PolizasCoberturas>> GetAllPolizasCoberturas()
         {
             // Lógica para obtener todas las polizas desde la base de datos
